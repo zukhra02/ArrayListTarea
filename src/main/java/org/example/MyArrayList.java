@@ -38,8 +38,24 @@ public class MyArrayList<T> {
 
     public static void main(String[] args) {
 
+        MyArrayList<Empleado> listaEmpleados = new MyArrayList<>();
 
-        class Empleado {
+        listaEmpleados.add(new Empleado("Juan", 30, 25000));
+        listaEmpleados.add(new Empleado("Ana", 28, 28000));
+        listaEmpleados.add(new Empleado("Luis", 35, 32000));
+        listaEmpleados.add(new Empleado("Yana", 28, 31000));
+
+        listaEmpleados.set(1, new Empleado("Olga", 32, 22000));
+
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            System.out.println(listaEmpleados.get(i).dameDatos());
+        }
+    }
+}
+
+
+
+class Empleado {
             private String nombre;
             private int edad;
             private double salario;
@@ -54,5 +70,3 @@ public class MyArrayList<T> {
                 return "El empleado se llama " + nombre + ". Tiene " + edad + " años. Y un salario de " + salario;
             }
         }
-    }
-}

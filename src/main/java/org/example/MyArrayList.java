@@ -7,6 +7,35 @@ public class MyArrayList<T> {
     private int size = 0;
 
 
+    public void add(T element) {
+        if (size == elements.length) {
+            elements = Arrays.copyOf(elements, elements.length * 2);
+        }
+        elements[size++] = element;
+    }
+
+    public T get(int index) {
+        checkIndex(index);
+        return (T) elements[index];
+    }
+
+    public void set(int index, T element) {
+        checkIndex(index);
+        elements[index] = element;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    private void checkIndex(int index) {
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+    }
+
+
+
     public static void main(String[] args) {
 
 
